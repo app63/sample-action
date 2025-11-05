@@ -12,11 +12,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Generate Token
+        uses: ./
         id: sample-action
         with:
           name: "Aditya Pujari"
-      - run: |
+      - name: Output Token
+        run: |
           echo 'Generated Token (action): ${{ steps.sample-action.outputs.token }}'
           echo '${{ steps.sample-action.outputs.token }}' | wc -c
