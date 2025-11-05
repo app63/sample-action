@@ -1,0 +1,12 @@
+name: 'Sample GitHub Action'
+description: 'GitHub Javascript action example'
+author: 'Aditya Pujari'
+
+inputs:
+  name:
+    description: 'Name to be printed for hello action'
+    required: true
+
+runs:
+  using: node24
+  main: dist/index.js

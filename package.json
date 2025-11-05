@@ -1,0 +1,31 @@
+{
+  "name": "sample-action",
+  "version": "1.0.0",
+  "description": "GitHub Javascript action example",
+  "keywords": [
+    "github",
+    "action",
+    "sample"
+  ],
+  "homepage": "https://github.com/app63/sample-action#readme",
+  "bugs": {
+    "url": "https://github.com/app63/sample-action/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/app63/sample-action.git"
+  },
+  "license": "MIT",
+  "author": "Aditya Pujari",
+  "type": "commonjs",
+  "main": "src/action.js",
+  "scripts": {
+    "test": "jest",
+    "build": "ncc build",
+    "lint": "prettier --write .github/workflows/**/*.yml"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.4",
+    "prettier": "^3.6.2"
+  }
+}
