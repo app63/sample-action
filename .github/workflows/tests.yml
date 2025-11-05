@@ -14,6 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./
+        id: sample-action
         with:
           name: "Aditya"
       - run: "echo Generated Password: ${{ steps.sample-action.outputs.token }}"
