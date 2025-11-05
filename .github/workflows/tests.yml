@@ -16,3 +16,4 @@ jobs:
       - uses: ./
         with:
           name: "Aditya"
+      - run: "echo Generated Password: ${{ steps.sample-action.outputs.token }}"
