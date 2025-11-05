@@ -22,7 +22,7 @@
   "scripts": {
     "test": "jest",
     "build": "ncc build",
-    "lint": "prettier --write .github/workflows/**/*.yml"
+    "format": "prettier --write .github/workflows/**/*.yml"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.4",
