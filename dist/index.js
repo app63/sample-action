@@ -27559,7 +27559,8 @@ const core = __nccwpck_require__(7484);
 const { randomUUID } = __nccwpck_require__(6982);
 
 async function run() {
-    console.log("Hello, GitHub Action");
+    const name = core.getInput('name');
+    console.log(`Hello, ${name}`);
     const uuid = randomUUID();
     console.log("Generated UUID:", uuid);
     core.setOutput('token', uuid);
