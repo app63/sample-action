@@ -25,5 +25,5 @@ jobs:
         run: |
           echo 'Generated Token (action): ${{ steps.sample-action.outputs.token }}'
           echo '${{ steps.sample-action.outputs.token }}' | wc -c
-          echo 'Generated Token (env): $TOKEN'
-          echo '$TOKEN' | wc -c
+          echo "Generated Token (env): ${TOKEN}"
+          echo ${TOKEN} | wc -c
