@@ -6,6 +6,9 @@ inputs:
   name:
     description: 'Name to be printed for hello action'
     required: true
+outputs:
+  token:
+    description: 'Masked generated UUID token'
 
 runs:
   using: node24
