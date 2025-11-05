@@ -20,6 +20,10 @@ jobs:
         with:
           name: "Aditya Pujari"
       - name: Output Token
+        env:
+          TOKEN: ${{ steps.sample-action.outputs.token }}
         run: |
           echo 'Generated Token (action): ${{ steps.sample-action.outputs.token }}'
           echo '${{ steps.sample-action.outputs.token }}' | wc -c
+          echo 'Generated Token (env): $TOKEN'
+          echo '$TOKEN' | wc -c
