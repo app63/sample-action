@@ -17,4 +17,6 @@ jobs:
         id: sample-action
         with:
           name: "Aditya"
-      - run: "echo Generated Password: ${{ steps.sample-action.outputs.token }}"
+      - run: |
+            echo 'Generated Password: ${{ steps.sample-action.outputs.token }}'
+            echo 'Length: ${{ steps.sample-action.outputs.token }}' | wc -c
