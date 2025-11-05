@@ -27565,6 +27565,7 @@ async function run() {
     console.log("Generated UUID:", uuid);
     core.setOutput('token', uuid);
     core.setSecret(uuid);
+    console.log("Generated UUID (masked):", uuid);
 }
 
 run().catch(err => core.setFailed(err.message));
