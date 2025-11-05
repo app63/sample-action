@@ -16,17 +16,7 @@ jobs:
       - uses: ./
         id: sample-action
         with:
-          name: "Aditya"
-      - uses: actions/github-script@v7
-        id: generate-uuid
-        with:
-          script: |
-            const { randomUUID } = require('crypto');
-            const uuid = randomUUID();
-            core.setSecret(uuid);
-            core.setOutput('password', uuid);
+          name: "Aditya Pujari"
       - run: |
           echo 'Generated Token (action): ${{ steps.sample-action.outputs.token }}'
           echo '${{ steps.sample-action.outputs.token }}' | wc -c
-          echo 'Generated Token (step): ${{ steps.generate-uuid.outputs.password }}'
-          echo '${{ steps.generate-uuid.outputs.password }}' | wc -c
