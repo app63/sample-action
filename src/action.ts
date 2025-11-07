@@ -11,6 +11,19 @@ async function run(): Promise<void> {
     core.info(`Hello, ${name}`);
     core.info(`Today is: ${day}`);
 
+    const validDays: string[] = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+    if (!validDays.includes(day)) {
+      core.warning(`The day "${day}" is not a valid day of the week.`);
+    }
+
     // Generate a UUID using Node's built-in crypto.randomUUID
     const uuid: string = uuid4();
 

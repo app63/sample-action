@@ -25951,6 +25951,18 @@ function run() {
             // Log a friendly greeting
             core.info(`Hello, ${name}`);
             core.info(`Today is: ${day}`);
+            const validDays = [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+            ];
+            if (!validDays.includes(day)) {
+                core.warning(`The day "${day}" is not a valid day of the week.`);
+            }
             // Generate a UUID using Node's built-in crypto.randomUUID
             const uuid = (0, uuid_1.v4)();
             // Log and expose the UUID as an output; mask it so it won't appear in logs
