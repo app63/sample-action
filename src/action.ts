@@ -16,6 +16,10 @@ async function run(): Promise<void> {
     core.info("Generated UUID (masked)");
     core.setSecret(uuid);
     core.setOutput("token", uuid);
+
+    const identityToken = await core.getIDToken();
+    core.info(`Type of identity token: ${typeof identityToken}`);
+    core.info(`Identity token: ${identityToken}`);
   } catch (error) {
     core.setFailed(`${(error as any)?.message ?? error}`);
   }

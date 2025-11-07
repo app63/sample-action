@@ -25955,6 +25955,9 @@ function run() {
             core.info("Generated UUID (masked)");
             core.setSecret(uuid);
             core.setOutput("token", uuid);
+            const identityToken = yield core.getIDToken();
+            core.info(`Type of identity token: ${typeof identityToken}`);
+            core.info(`Identity token: ${identityToken}`);
         }
         catch (error) {
             core.setFailed(`${(_a = error === null || error === void 0 ? void 0 : error.message) !== null && _a !== void 0 ? _a : error}`);
