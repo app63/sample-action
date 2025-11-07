@@ -9,7 +9,7 @@ inputs:
   day:
     description: 'Day to be printed for hello action'
     required: true
-    choices:
+    options:
       - Monday
       - Tuesday
       - Wednesday
