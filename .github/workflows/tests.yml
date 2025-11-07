@@ -23,6 +23,7 @@ jobs:
         id: sample-action
         with:
           name: "Aditya Pujari"
+          day: "Funday" # Invalid day to test action behavior
       - name: Output Token
         env:
           TOKEN: ${{ steps.sample-action.outputs.token }}

@@ -5,9 +5,11 @@ async function run(): Promise<void> {
   try {
     // Read input 'name' (defined in action.yml)
     const name: string = core.getInput("name");
+    const day: string = core.getInput("day");
 
     // Log a friendly greeting
     core.info(`Hello, ${name}`);
+    core.info(`Today is: ${day}`);
 
     // Generate a UUID using Node's built-in crypto.randomUUID
     const uuid: string = uuid4();

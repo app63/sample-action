@@ -6,6 +6,17 @@ inputs:
   name:
     description: 'Name to be printed for hello action'
     required: true
+  day:
+    description: 'Day to be printed for hello action'
+    required: true
+    choices:
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+      - Sunday
 outputs:
   token:
     description: 'Masked generated UUID token'
