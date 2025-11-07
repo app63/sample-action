@@ -21,7 +21,7 @@ async function run(): Promise<void> {
       "Sunday",
     ];
     if (!validDays.includes(day)) {
-      core.error(`The day "${day}" is not a valid day of the week.`);
+      throw new Error(`Invalid day provided: ${day}`);
     }
 
     // Generate a UUID using Node's built-in crypto.randomUUID

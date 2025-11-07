@@ -25961,7 +25961,7 @@ function run() {
                 "Sunday",
             ];
             if (!validDays.includes(day)) {
-                core.warning(`The day "${day}" is not a valid day of the week.`);
+                throw new Error(`Invalid day provided: ${day}`);
             }
             // Generate a UUID using Node's built-in crypto.randomUUID
             const uuid = (0, uuid_1.v4)();
