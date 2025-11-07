@@ -1,6 +1,16 @@
 import * as core from "@actions/core";
 import { v4 as uuid4 } from "uuid";
 
+enum DaysOfWeek {
+  Monday = "Monday",
+  Tuesday = "Tuesday",
+  Wednesday = "Wednesday",
+  Thursday = "Thursday",
+  Friday = "Friday",
+  Saturday = "Saturday",
+  Sunday = "Sunday",
+}
+
 async function run(): Promise<void> {
   try {
     // Read input 'name' (defined in action.yml)
@@ -11,17 +21,11 @@ async function run(): Promise<void> {
     core.info(`Hello, ${name}`);
     core.info(`Today is: ${day}`);
 
-    const validDays: string[] = [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ];
-    if (!validDays.includes(day)) {
-      throw new Error(`Invalid day provided: ${day}`);
+    // Validate the day input
+    if (!Object.values(DaysOfWeek).includes(day as DaysOfWeek)) {
+      throw new Error(
+        `Invalid day provided: ${day}. Please provide a valid day of the week.`,
+      );
     }
 
     // Generate a UUID using Node's built-in crypto.randomUUID

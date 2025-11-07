@@ -25941,6 +25941,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(7484));
 const uuid_1 = __nccwpck_require__(764);
+var DaysOfWeek;
+(function (DaysOfWeek) {
+    DaysOfWeek["Monday"] = "Monday";
+    DaysOfWeek["Tuesday"] = "Tuesday";
+    DaysOfWeek["Wednesday"] = "Wednesday";
+    DaysOfWeek["Thursday"] = "Thursday";
+    DaysOfWeek["Friday"] = "Friday";
+    DaysOfWeek["Saturday"] = "Saturday";
+    DaysOfWeek["Sunday"] = "Sunday";
+})(DaysOfWeek || (DaysOfWeek = {}));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         var _a;
@@ -25951,17 +25961,9 @@ function run() {
             // Log a friendly greeting
             core.info(`Hello, ${name}`);
             core.info(`Today is: ${day}`);
-            const validDays = [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday",
-            ];
-            if (!validDays.includes(day)) {
-                throw new Error(`Invalid day provided: ${day}`);
+            // Validate the day input
+            if (!Object.values(DaysOfWeek).includes(day)) {
+                throw new Error(`Invalid day provided: ${day}. Please provide a valid day of the week.`);
             }
             // Generate a UUID using Node's built-in crypto.randomUUID
             const uuid = (0, uuid_1.v4)();
