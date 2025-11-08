@@ -11,7 +11,6 @@ on: [push]
 
 permissions:
   id-token: write  # Required to fetch OIDC tokens
-  contents: read   # Required for actions/checkout
 
 jobs:
   build:
