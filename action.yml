@@ -6,11 +6,9 @@ inputs:
   name:
     description: 'Name to be printed for hello action'
     required: true
-    type: string
   day:
     description: 'Day to be printed for hello action'
     required: true
-    type: choice
     options:
       - Monday
       - Tuesday

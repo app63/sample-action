@@ -23,7 +23,7 @@ jobs:
         id: sample-action
         with:
           name: "Aditya Pujari"
-          day: "Funday"
+          day: "Friday"
       - name: Output Token
         env:
           TOKEN: ${{ steps.sample-action.outputs.token }}

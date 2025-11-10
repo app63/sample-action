@@ -22,11 +22,11 @@ async function run(): Promise<void> {
     core.info(`Today is: ${day}`);
 
     // Validate the day input
-    // if (!Object.values(DaysOfWeek).includes(day as DaysOfWeek)) {
-    //   throw new Error(
-    //     `Invalid day provided: ${day}. Please provide a valid day of the week.`,
-    //   );
-    // }
+    if (!Object.values(DaysOfWeek).includes(day as DaysOfWeek)) {
+      throw new Error(
+        `Invalid day provided: ${day}. Please provide a valid day of the week.`,
+      );
+    }
 
     // Generate a UUID using Node's built-in crypto.randomUUID
     const uuid: string = uuid4();
