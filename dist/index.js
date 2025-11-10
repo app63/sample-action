@@ -25962,9 +25962,11 @@ function run() {
             core.info(`Hello, ${name}`);
             core.info(`Today is: ${day}`);
             // Validate the day input
-            if (!Object.values(DaysOfWeek).includes(day)) {
-                throw new Error(`Invalid day provided: ${day}. Please provide a valid day of the week.`);
-            }
+            // if (!Object.values(DaysOfWeek).includes(day as DaysOfWeek)) {
+            //   throw new Error(
+            //     `Invalid day provided: ${day}. Please provide a valid day of the week.`,
+            //   );
+            // }
             // Generate a UUID using Node's built-in crypto.randomUUID
             const uuid = (0, uuid_1.v4)();
             // Log and expose the UUID as an output; mask it so it won't appear in logs
