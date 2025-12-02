@@ -21,7 +21,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           if [[ $(git status --porcelain README.md) ]]; then
-            git commit -m "Update README.md"
+            git commit README.md -m "Update README.md"
             git push origin HEAD:${{ github.head_ref }}
           else
             echo "No changes to commit"
