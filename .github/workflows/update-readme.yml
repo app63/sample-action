@@ -18,7 +18,7 @@ jobs:
 
       - name: Update README
         run: |
-          sed -i "s/^day:.*/day: $(date +%A)/" README.md
+          sed -i "s/day: \".*\"/day: \"$(date +%A)\"/g" README.md
 
       - name: Commit and push changes
         run: |
