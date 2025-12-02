@@ -1,0 +1,33 @@
+name: Update README
+on:
+  pull_request:
+    branches:
+      - "main"
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Update README
+        run: |
+          sed -i "s/day: \".*\"/day: \"$(date +%A)\"/g" README.md
+
+      - name: Commit and push changes
+        run: |
+          echo "Commit changes to README.md to branch ${{ github.head_ref }}"
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          if [[ $(git status --porcelain README.md) ]]; then
+            git commit README.md -m "Update README.md"
+            git push
+          else
+            echo "No changes to commit"
+          fi

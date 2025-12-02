@@ -20,7 +20,7 @@ jobs:
         uses: app63/sample-action@v1
         with:
           name: "Your Name"
-          day: "Monday"
+          day: "Tuesday"
       - name: Using the token
         run: |
             echo "Token is ${{ steps.sample-action.outputs.token }}"
