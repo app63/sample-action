@@ -5,7 +5,7 @@ on:
       - "main"
 
 jobs:
-  steps:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,7 +22,7 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           if [[ $(git status --porcelain README.md) ]]; then
             git commit README.md -m "Update README.md"
-            git push origin HEAD:${{ github.head_ref }}
+            git push origin ${{ github.head_ref }}
           else
             echo "No changes to commit"
           fi
