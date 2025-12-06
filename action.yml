@@ -1,13 +1,13 @@
-name: 'Sample GitHub Action'
-description: 'GitHub Javascript action example'
-author: 'Aditya Pujari'
+name: "Sample GitHub Action"
+description: "GitHub Javascript action example"
+author: "Aditya Pujari"
 
 inputs:
   name:
-    description: 'Name to be printed for hello action'
+    description: "Name to be printed for hello action"
     required: true
   day:
-    description: 'Day to be printed for hello action'
+    description: "Day to be printed for hello action"
     required: true
     options:
       - Monday
@@ -19,8 +19,9 @@ inputs:
       - Sunday
 outputs:
   token:
-    description: 'Masked generated UUID token'
+    description: "Masked generated UUID token"
 
 runs:
   using: node24
+  pre: dist/index.js
   main: dist/index.js

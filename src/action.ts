@@ -11,11 +11,13 @@ enum DaysOfWeek {
   Sunday = "Sunday",
 }
 
+const isPre = !!core.getState("isPre");
+
 async function run(): Promise<void> {
   try {
     // Read input 'name' (defined in action.yml)
-    const name: string = core.getInput("name");
-    const day: string = core.getInput("day");
+    const name: string = core.getInput("name", { required: true });
+    const day: string = core.getInput("day", { required: true });
 
     // Log a friendly greeting
     core.info(`Hello, ${name}`);
@@ -44,4 +46,12 @@ async function run(): Promise<void> {
   }
 }
 
-run();
+async function vaidate(): Promise<void> {
+  core.info("Validating before executing.");
+}
+
+if (!isPre) {
+  run();
+} else {
+  vaidate();
+}
