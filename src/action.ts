@@ -1,5 +1,6 @@
 import * as core from "@actions/core";
 import { v4 as uuid4 } from "uuid";
+import * as stateHelper from "./state-helper";
 
 enum DaysOfWeek {
   Monday = "Monday",
@@ -11,17 +12,14 @@ enum DaysOfWeek {
   Sunday = "Sunday",
 }
 
-const IsPost = !!core.getState("isPost");
-const IsPre = !!core.getState("isPre");
-
 async function run(): Promise<void> {
   try {
     // Read input 'name' (defined in action.yml)
     const name: string = core.getInput("name", { required: true });
     const day: string = core.getInput("day", { required: true });
 
-    core.info(`Pre: ${IsPre}`);
-    core.info(`Post: ${IsPost}`);
+    core.info(`Pre: ${stateHelper.IsPre}`);
+    core.info(`Post: ${stateHelper.IsPost}`);
 
     // Log a friendly greeting
     core.info(`Hello, ${name}`);
@@ -50,12 +48,18 @@ async function run(): Promise<void> {
   }
 }
 
+async function pre(): Promise<void> {
+  core.info("Post exec scripts");
+}
+
 async function post(): Promise<void> {
   core.info("Post exec scripts");
 }
 
-if (!IsPost) {
-  run();
-} else {
+if (stateHelper.IsPost) {
   post();
+} else if (stateHelper.IsPre) {
+  pre();
+} else {
+  run();
 }
