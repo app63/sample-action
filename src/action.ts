@@ -11,7 +11,7 @@ enum DaysOfWeek {
   Sunday = "Sunday",
 }
 
-const isPre = !!core.getState("isPre");
+const IsPost = !!core.getState("isPost");
 
 async function run(): Promise<void> {
   try {
@@ -46,12 +46,12 @@ async function run(): Promise<void> {
   }
 }
 
-async function vaidate(): Promise<void> {
-  core.info("Validating before executing.");
+async function post(): Promise<void> {
+  core.info("Post exec scripts");
 }
 
-if (!isPre) {
+if (!IsPost) {
   run();
 } else {
-  vaidate();
+  post();
 }
