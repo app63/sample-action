@@ -12,12 +12,16 @@ enum DaysOfWeek {
 }
 
 const IsPost = !!core.getState("isPost");
+const IsPre = !!core.getState("isPre");
 
 async function run(): Promise<void> {
   try {
     // Read input 'name' (defined in action.yml)
     const name: string = core.getInput("name", { required: true });
     const day: string = core.getInput("day", { required: true });
+
+    core.info(`Pre: ${IsPre}`);
+    core.info(`Post: ${IsPost}`);
 
     // Log a friendly greeting
     core.info(`Hello, ${name}`);

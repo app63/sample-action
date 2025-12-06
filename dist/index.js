@@ -25951,7 +25951,8 @@ var DaysOfWeek;
     DaysOfWeek["Saturday"] = "Saturday";
     DaysOfWeek["Sunday"] = "Sunday";
 })(DaysOfWeek || (DaysOfWeek = {}));
-const isPre = !!core.getState("isPre");
+const IsPost = !!core.getState("isPost");
+const IsPre = !!core.getState("isPre");
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         var _a;
@@ -25959,6 +25960,8 @@ function run() {
             // Read input 'name' (defined in action.yml)
             const name = core.getInput("name", { required: true });
             const day = core.getInput("day", { required: true });
+            core.info(`Pre: ${IsPre}`);
+            core.info(`Post: ${IsPost}`);
             // Log a friendly greeting
             core.info(`Hello, ${name}`);
             core.info(`Today is: ${day}`);
@@ -25981,16 +25984,16 @@ function run() {
         }
     });
 }
-function vaidate() {
+function post() {
     return __awaiter(this, void 0, void 0, function* () {
-        core.info("Validating before executing.");
+        core.info("Post exec scripts");
     });
 }
-if (!isPre) {
+if (!IsPost) {
     run();
 }
 else {
-    vaidate();
+    post();
 }
 
 
