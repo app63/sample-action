@@ -32,6 +32,6 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@types/node-fetch": "^2.6.13",
-    "uuid": "^13.0.0"
+    "uuid": "^14.0.0"
   }
 }
